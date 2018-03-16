@@ -1,0 +1,84 @@
+//
+
+//  ViewController.swift
+
+//  Azad Apple Map
+
+//
+
+//  Created by mjk3ll3y on 3/13/18.
+
+//  Copyright © 2018 MSGeospatialTechnology. All rights reserved.
+
+//
+
+
+
+import UIKit
+
+import MapKit
+
+import CoreLocation
+
+
+
+protocol HandleMapSearch: class {
+
+    func dropPinZoomIn( placemark:MKPlacemark)
+
+    
+
+    }
+
+
+
+class UIViewController: UIViewController {
+
+    
+
+    var selectedPin: MKPlacemark?
+
+    var resultSearchController: UISearchController
+
+    @IBOutlet weak var AzadsMap: MKMapView!
+
+
+
+    let locationmanager = CLLocationManager()
+
+    
+
+    override func viewDidLoad() {
+
+        super.viewDidLoad()
+
+        
+
+        locationmanager.delegate = self
+
+        locationmanager.requestWhenInUseAuthorization()
+
+        locationmanager.startUpdatingLocation()
+
+        locationmanager.requestlocation()
+
+        // Do any additional setup after loading the view, typically from a nib.
+
+        
+
+    
+
+    }
+
+
+
+    override func didReceiveMemoryWarning() {
+
+        super.didReceiveMemoryWarning()
+
+        // Dispose of any resources that can be recreated.
+
+    }
+
+
+
